@@ -1,0 +1,11 @@
+# Activa el motor de reescritura
+RewriteEngine On
+
+# Condición: Si el archivo solicitado no existe
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Condición: Si el directorio solicitado no existe
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Regla de reescritura: Redirige todas las solicitudes a index.php
+RewriteRule ^(.*)$ /api/router/index.php [QSA,L]
